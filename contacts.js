@@ -13,13 +13,13 @@ const listContacts = async () => {
   return JSON.parse(result);
 };
 
-const getById = async (id) => {
-    const contacts = await listContacts();
-    const result = await contacts.find(contact => contact.id === id);
-    if (!result) {
-      return null;
-    }
-    return result;
+const getById = async (contactId) => {
+  const contacts = await listContacts();
+  const result = await contacts.find((contact) => contact.id == contactId);
+  if (!result) {
+    return null;
+  }
+  return result;
 };
 
 const addContact = async (name, email, phone) => {
@@ -37,7 +37,7 @@ const addContact = async (name, email, phone) => {
 
 const removeById = async (id) => {
   const contacts = await listContacts();
-  const idx = contacts.findIndex(item => item.id === id);
+  const idx = contacts.findIndex((item) => item.id == id);
   if (idx === -1) {
     return null;
   }
